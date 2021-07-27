@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Registruj se</title>
+    </h:head>
+    <h:body>
+        <h3>Registracija novog korisnika</h3>
+        <h:form>
+            <h:panelGrid columns="3">
+                <h:outputText value="Korisničko ime:"/>
+                <h:inputText id="username" value="#{registerLoginManagedBean.username}" required="true" requiredMessage="Korisničko ime je obavezno"/>
+                <h:message for="username" style="color: red"/>
+                
+                <h:outputText value="Lozinka:"/>
+                <h:inputSecret id="password" value="#{registerLoginManagedBean.password}" required="true" requiredMessage="Lozinka je obavezna"/>
+                <h:message for="password" style="color: red"/>
+                
+                <h:outputText value="Ime:"/>
+                <h:inputText id="name" value="#{registerLoginManagedBean.name}" required="true" requiredMessage="Ime je obavezno"/>
+                <h:message for="name" style="color: red"/>
+                
+                <h:outputText value="Prezime:"/>
+                <h:inputText id="surname" value="#{registerLoginManagedBean.surname}" required="true" requiredMessage="Prezime je obavezno"/>
+                <h:message for="surname" style="color: red"/>
+                <h:commandButton value="Registruj se" action="#{registerLoginManagedBean.register()}"/>
+                
+            </h:panelGrid>
+        </h:form>
+    </h:body>
+</html>
+
+

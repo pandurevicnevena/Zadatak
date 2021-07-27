@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Ažuriranje</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:dataTable border="1" style="border-collapse: collapse" value="#{productManagedBean.productList}" var="product">
+                <h:column>
+                    <f:facet name="header">ID</f:facet>
+                        #{product.productId}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Ime proizvoda</f:facet>
+                        #{product.name}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Cijena</f:facet>
+                        #{product.price}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Količina</f:facet>
+                        #{product.quantity}
+                </h:column>
+            </h:dataTable>
+            <br></br>
+        <h:panelGrid columns="3">
+                <h:outputText value="ID proizvoda:"/>
+                <h:inputText id="ID" value="#{productManagedBean.productId}" required="true" requiredMessage="Obavezno polje"/>
+                <h:message for="ID" style="color: red"/>
+                
+                <h:outputText value="Naziv proizvoda:"/>
+                <h:inputText id="name" value="#{productManagedBean.name}" required="true" requiredMessage="Obavezno polje"/>
+                <h:message for="name" style="color: red"/>
+
+                <h:outputText value="Cijena proizvoda:"/>
+                <h:inputText id="price" value="#{productManagedBean.price}" required="true" requiredMessage="Obavezno polje"/>
+                <h:message for="price" style="color: red"/>
+                
+                <h:outputText value="Dostupna količina:"/>
+                <h:inputText id="quantity" value="#{productManagedBean.quantity}" required="true" requiredMessage="Obavezno polje"/>
+                <h:message for="quantity" style="color: red"/>
+            </h:panelGrid>
+            
+            <h:commandButton value="Izmmijeni" action="#{productManagedBean.updateProduct()}"/>
+        </h:form>
+    </h:body>
+</html>
+
