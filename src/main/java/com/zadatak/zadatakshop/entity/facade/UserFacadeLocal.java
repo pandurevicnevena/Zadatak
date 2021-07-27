@@ -22,7 +22,6 @@ public interface UserFacadeLocal {
     @TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
     public boolean register(String username, String password, String name, String surname);
     public User login(String username, String password);
-    public User findByUsername(String username);
 
     List<User> findAll();
 

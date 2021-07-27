@@ -39,18 +39,6 @@ public class UserFacade extends AbstractFacade<User> implements UserFacadeLocal 
         }
     }
 
-    /*@Override
-    public User findByUsername(String username) {
-        try {
-            return (User) entityManager.createNamedQuery("User.findByUsername")
-                    .setParameter("username", username)
-                    .getSingleResult();
-        } catch (Exception exception) {
-            exception.printStackTrace();
-            return null;
-        }
-    }*/
-
     @Override
     public boolean register(String username, String password, String name, String surname) {
         try {
@@ -75,13 +63,4 @@ public class UserFacade extends AbstractFacade<User> implements UserFacadeLocal 
             return false;
         }
     }
-
-    @Override
-    public User findByUsername(String username) {
-        Query query = entityManager.createNamedQuery("User.findByUsername");
-        query.setParameter("username", username);
-        List <User> users = query.getResultList();
-        return users.isEmpty() ? null : (User) users.iterator().next();
-    }
-    
 }
